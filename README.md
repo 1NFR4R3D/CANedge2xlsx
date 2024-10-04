@@ -32,9 +32,9 @@ cython # Optional - required to make compiled executable
 ```
 
 ## Executable binares
-The instructions below are for compiling the Python code to a executable binares on Linux. 
-This is not for performance, but for ease of use.
-It is worth exploring how to do this on/for Windows
+The instructions below are for compiling the Python code to a executable binares on Linux.\
+This is not for performance, but for ease of use.\
+TODO - It is worth exploring how to do this on/for Windows.
 ### Compilation (for Linux)
 Convert .py to .c using cython
 ```shell
@@ -51,11 +51,11 @@ $ gcc -O $(python3-config --includes) CANedge2xlsx.c -o CANedge2xlsx $(python3-c
 
 ## Performance notes
 
-Linux (Python)   - ~30 seconds
-Linux (Compiled) - ~36 seconds
+Linux (Python)   - ~30 seconds\
+Linux (Compiled) - ~36 seconds\
 Windows (Python) - ~65 seconds
 
-### Test systems - Linux 
+### Test systems - Linux (WSL)
 ```
                             ....               user@host
               .',:clooo:  .:looooo:.           ----------------
