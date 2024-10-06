@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DBC Introduction &mdash; Open Vehicles  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/theme_overrides.css?v=39c7010f" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=723588f9" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=bb6d7290"></script>
+        <script src="../../../_static/copybutton.js?v=a785c8f9"></script>
+        <script async="async" src="/_/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="DEMO Vehicle" href="../../vehicle_demo/docs/index.html" />
+    <link rel="prev" title="DBC Based Vehicles" href="index.html" /> 
+
+<!-- RTD Extra Head -->
+
+<link rel="stylesheet" href="/_/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/docs/source/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-1", "language": "en", "page": "components/vehicle_dbc/docs/dbc-primer", "programming_language": "words", "project": "ovms", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "3.3.004"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+<script type="text/javascript" src="/_/static/javascript/readthedocs-analytics.js" async="async"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Open Vehicles
+          </a>
+              <div class="version">
+                3.3.004
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guides:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plugin/README.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vehicle Specific Guides:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_bmwi3/docs/index.html">BMW i3 / i3s</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_byd_atto3/docs/index.html">BYD Atto 3</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">DBC Based Vehicles</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#support-overview">Support Overview</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#contents">Contents</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">DBC Introduction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#basic-example">Basic Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-dbc-file">Create DBC File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#use-dbc-file">Use DBC File</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_demo/docs/index.html">DEMO Vehicle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_fiat500/docs/index.html">Fiat 500e</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_hyundai_ioniq5/docs/index.html">Hyundai Ioniq 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_hyundai_ioniqvfl/docs/index.html">Hyundai Ioniq vFL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_jaguaripace/docs/index.html">Jaguar IPace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_kianiroev/docs/index.html">Kia e-Niro / Hyundai Kona / Hyundai Ioniq FL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_kiasoulev/docs/index.html">Kia Soul EV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_maxus_edeliver3/docs/index.html">Maxus eDeliver3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_maxus_euniq56/docs/index.html">Maxus Euniq 5 6-seats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_mercedesb250e/docs/index.html">Mercedes-Benz B250E W242</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_mgev/docs/index.html">MG EV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_minise/docs/index.html">Mini Cooper SE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_mitsubishi/docs/index.html">Mitsubishi Trio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_nissanleaf/docs/index.html">Nissan Leaf/e-NV200</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_obdii/docs/index.html">OBDII Vehicles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_renaulttwizy/docs/index.html">Renault Twizy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_renaultzoe/docs/index.html">Renault Zoe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_renaultzoe_ph2_obd/docs/index.html">Renault Zoe Phase 2 (OBD port)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_smarted/docs/index.html">Smart ED Gen.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_smarteq/docs/index.html">Smart ED/EQ Gen.4 (453)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_teslamodel3/docs/index.html">Tesla Model 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_teslamodels/docs/index.html">Tesla Model S</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_teslaroadster/docs/index.html">Tesla Roadster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_toyotarav4ev/docs/index.html">Toyota RAV4 EV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_track/docs/index.html">Tracking Vehicles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_vweup/docs/index.html">VW e-Up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_vweup/docs/index_obd.html">VW e-Up via OBD2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vehicle_vweup/docs/index_t26.html">VW e-Up via Comfort CAN (T26A)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guides:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli/index.html">Command Line Interpreter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../crtd/can_logging.html">CAN Bus Data Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../crtd/index.html">CRTD CAN Log Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ovms_webserver/docs/index.html">Web Framework &amp; Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ovms_script/docs/index.html">Scripting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../canopen/docs/index.html">CANopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../server/index.html">OVMS Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../protocol_v2/index.html">OVMS Protocol v2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../protocol_httpapi/index.html">OVMS Server V2 HTTP API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Research / Work in progress:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../retools_pidscan/docs/index.html">PID SCAN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../retools_testerpresent/docs/index.html">Tester Present</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Open Vehicles</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">DBC Based Vehicles</a></li>
+      <li class="breadcrumb-item active">DBC Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/openvehicles/Open-Vehicle-Monitoring-System-3/blob/3.3.004/docs/source/components/vehicle_dbc/docs/dbc-primer.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dbc-introduction">
+<h1>DBC Introduction<a class="headerlink" href="#dbc-introduction" title="Link to this heading"></a></h1>
+<p>DBC is a CAN data description file format introduced by <a class="reference external" href="https://www.vector.com/">Vector Informatik GmbH</a>.
+DBC files are text files so can be created and edited using a simple text editor like the one built into
+the OVMS web UI.</p>
+<p>DBC files can be used to support vehicles that don’t have a dedicated native adaption yet. This is done
+using the generic DBC vehicle type, which can use DBC files to translate CAN data into metrics.</p>
+<p>This section tries to show you how to create and use a DBC specification on the OVMS. Of course
+you’ll need to know how to decode your vehicle’s CAN frames first. You can use the OVMS RE (reverse
+engineering) toolkit to identify which messages are on the bus and which changes correlate to
+actions and status on the car.</p>
+<p>There’s also a very good general introduction to DBC from CSS Electronics including an explanatory video:
+<a class="reference external" href="https://www.csselectronics.com/screen/page/can-dbc-file-database-intro/language/en">https://www.csselectronics.com/screen/page/can-dbc-file-database-intro/language/en</a></p>
+<p>DBC files only specify the passive (reading) part, they don’t provide a means to define transmissions.
+If you need to send frames to request certain information, you can still use the OVMS DBC engine to
+decode the results (instead of doing the decoding in C++ code). So a DBC file can be used as a base
+for a real vehicle module. To request OBD2 data during development, you can use the <code class="docutils literal notranslate"><span class="pre">re</span> <span class="pre">obdii</span></code>
+commands.</p>
+<section id="basic-example">
+<h2>Basic Example<a class="headerlink" href="#basic-example" title="Link to this heading"></a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The DBC support is usable, but considered to be an alpha release.
+The way it works may change in the future.</p>
+</div>
+<p>This example is taken from the <strong>Twizy</strong>, which sends some primary BMS status data at CAN ID 0x155 (341).
+Note: the Twizy module actually does not use DBC, this is just an example how you would decode this
+message if using DBC.</p>
+<p><strong>Message example</strong>: <code class="docutils literal notranslate"><span class="pre">05</span> <span class="pre">96</span> <span class="pre">E7</span> <span class="pre">54</span> <span class="pre">6D</span> <span class="pre">58</span> <span class="pre">00</span> <span class="pre">6F</span></code></p>
+<ul class="simple">
+<li><p>Byte 0: charge current limit [A], scaled by 5, no offset: <code class="docutils literal notranslate"><span class="pre">05</span></code> → <strong>25A</strong></p></li>
+<li><p>Bytes 1+2: momentary battery current [A], big endian, lower 12 bits, scaled by -0.25, offset +500: <code class="docutils literal notranslate"><span class="pre">_6</span> <span class="pre">E7</span></code> → <strong>58.25A</strong></p></li>
+<li><p>Bytes 4+5: SOC [%], big endian, scaled by 0.0025, no offset: <code class="docutils literal notranslate"><span class="pre">6D</span> <span class="pre">58</span></code> → <strong>69.98%</strong></p></li>
+</ul>
+<p>These can be translated to metrics directly:</p>
+<ul class="simple">
+<li><p>Charge current limit: <code class="docutils literal notranslate"><span class="pre">v.c.climit</span></code></p></li>
+<li><p>Momentary battery current: <code class="docutils literal notranslate"><span class="pre">v.b.current</span></code></p></li>
+<li><p>Battery SOC: <code class="docutils literal notranslate"><span class="pre">v.b.soc</span></code></p></li>
+</ul>
+</section>
+<section id="create-dbc-file">
+<h2>Create DBC File<a class="headerlink" href="#create-dbc-file" title="Link to this heading"></a></h2>
+<p><strong>Copy &amp; paste</strong> the following into a new editor window:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>VERSION &quot;DBC Example 1.0&quot;
+
+BS_: 500000 : 0,0
+
+BO_ 341 BMS_1: 8 Vector__XXX
+  SG_ v_c_climit        :  7|8@0+   (5,0)         [0|35]        &quot;A&quot;   Vector__XXX
+  SG_ v_b_current       : 11|12@0+  (-0.25,500)   [-500|1000]   &quot;A&quot;   Vector__XXX
+  SG_ v_b_soc           : 39|16@0+  (0.0025,0)    [0|100]       &quot;%&quot;   Vector__XXX
+</pre></div>
+</div>
+<p><strong>What does this mean?</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">BS_</span></code> defines the bus speed (500 kbit in this example) and bit timings (unused)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BO_</span></code> defines the data object, a CAN frame of length 8 with ID 341 (0x155) (“BMS_1” is just an arbitrary name)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SG_</span></code> lines define the signals (values) embedded in the object (see below)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Vector__XXX</span></code> is just a placeholder for any sender/receiver (currently unused by the OVMS)</p></li>
+</ul>
+<p><strong>Signals</strong> are defined by their…</p>
+<ul class="simple">
+<li><p>Name (= metric name with <code class="docutils literal notranslate"><span class="pre">.</span></code> replaced by <code class="docutils literal notranslate"><span class="pre">_</span></code>)</p></li>
+<li><p>Start position (bit position) and bit length (<code class="docutils literal notranslate"><span class="pre">7|8</span></code>)</p></li>
+<li><p>Endianness: <code class="docutils literal notranslate"><span class="pre">0</span></code> = big endian (most significant byte first), <code class="docutils literal notranslate"><span class="pre">1</span></code> = little endian (least significant byte first) (Note: the DBC format documentation is wrong on this)</p></li>
+<li><p>Signedness: <code class="docutils literal notranslate"><span class="pre">+</span></code> = unsigned, <code class="docutils literal notranslate"><span class="pre">-</span></code> = signed</p></li>
+<li><p>Scaling and offset: <code class="docutils literal notranslate"><span class="pre">(-0.25,500)</span></code> =&gt; real value = raw value * -0.25 + 500</p></li>
+<li><p>Minimum/maximum: <code class="docutils literal notranslate"><span class="pre">[-500|1000]</span></code> = valid real values are in the range -500 to 1000</p></li>
+<li><p>Unit: e.g. <code class="docutils literal notranslate"><span class="pre">&quot;A&quot;</span></code> (ignored/irrelevant, defined by the metric)</p></li>
+</ul>
+<p>The metric to set can be given as the name of the signal. You may use the metric name directly
+on the OVMS, but to conform to the DBC standard, replace the dots by <code class="docutils literal notranslate"><span class="pre">_</span></code>.</p>
+<p><strong>Bit positions</strong> are counted from byte 0 upwards by their significance, regardless of the endianness.
+The first message byte has bits 0…7 with bit 7 being the most significant bit of the byte. The
+second byte has bits 8…15 with bit 15 being the MSB, and so on:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[ 7 6 5 4 3 2 1 0 ] [ 15 14 13 12 11 10 9 8 ] [ 23 22 21 20 …
+`----- Byte 0 ----´ `------- Byte 1 --------´ `----- Byte 2 …
+</pre></div>
+</div>
+<p>For big endian values, signal start bit positions are given for the most significant bit. For
+little endian values, the start position is that of the least significant bit.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>On endianness</strong>: “big endian” means a byte sequence of <code class="docutils literal notranslate"><span class="pre">0x12</span> <span class="pre">0x34</span></code> decodes into <code class="docutils literal notranslate"><span class="pre">0x1234</span></code>
+(most significant byte first), “little endian” means the same byte sequence decodes into <code class="docutils literal notranslate"><span class="pre">0x3412</span></code>
+(least significant byte first). “Big endian” is the natural way of writing numbers, i.e. with their
+most significant digit coming first, “little endian” is vice versa. Endianness only applies
+to values of multiple bytes, single byte values are always written naturally / “big endian”.</p>
+</div>
+</section>
+<section id="use-dbc-file">
+<h2>Use DBC File<a class="headerlink" href="#use-dbc-file" title="Link to this heading"></a></h2>
+<p><strong>Save</strong> the DBC example as: <code class="docutils literal notranslate"><span class="pre">/store/dbc/twizy1.dbc</span></code> (the directory will be created by the editor)</p>
+<p><strong>Open the shell</strong>. To see debug logs, issue <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">level</span> <span class="pre">debug</span> <span class="pre">dbc-parser</span></code> and <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">level</span> <span class="pre">debug</span> <span class="pre">v-dbc</span></code>.</p>
+<p>Note: the DBC parser currently isn’t graceful on errors, <strong>a wrong DBC file may crash the module</strong>.
+So you should only enable automatic loading of DBC files on boot when you’re done developing
+and testing it.</p>
+<p>So let’s first try if the <strong>DBC engine can parse</strong> our file. The <code class="docutils literal notranslate"><span class="pre">dbc</span> <span class="pre">autoload</span></code> command loads all
+DBC files from the <code class="docutils literal notranslate"><span class="pre">/store/dbc</span></code> directory:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>OVMS# dbc autoload
+Auto-loading DBC files...
+D (238062) dbc-parser: VERSION parsed as: DBC Example 1.0
+D (238062) dbc-parser: BU_ parsed 1 nodes
+D (238062) dbc-parser: BO_ parsed message 341
+D (238072) dbc-parser: SG_ parsed signal v_c_climit
+D (238072) dbc-parser: SG_ parsed signal v_b_current
+D (238082) dbc-parser: SG_ parsed signal v_b_soc
+</pre></div>
+</div>
+<p>Looks good. <code class="docutils literal notranslate"><span class="pre">dbc</span> <span class="pre">list</span></code> can tell us some statistics:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>OVMS# dbc list
+twizy1: DBC Example 1.0: 1 message(s), 3 signal(s), 56% coverage, 1 lock(s)
+</pre></div>
+</div>
+<p>The coverage tells us how much of our CAN data bits are covered by signal definitions.</p>
+<p>Now let’s <strong>load the file into the DBC vehicle</strong>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>OVMS# config set vehicle dbc.can1 twizy1
+Parameter has been set.
+
+OVMS# vehicle module NONE
+I (1459922) v-none: Generic NONE vehicle module
+
+OVMS# vehicle module DBC
+I (249022) v-dbc: Pure DBC vehicle module
+I (249022) v-dbc: Registering can bus #1 as DBC twizy1
+</pre></div>
+</div>
+<p>Nice. Let’s <strong>simulate receiving our test frame</strong> and check the decoded metrics:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>OVMS# can can1 rx standard 155 05 96 E7 54 6D 58 00 6F
+OVMS# me li v.b.soc
+v.b.soc                                  69.98%
+OVMS# me li v.b.current
+v.b.current                              58.25A
+OVMS# me li v.c.climit
+v.c.climit                               25A
+</pre></div>
+</div>
+<p>So the decoding apparently works.</p>
+<p><strong>To configure DBC mode for autostart</strong> we now just need to set the DBC vehicle mode to be
+loaded on vehicle startup, and to enable autoloading of the DBC files from <code class="docutils literal notranslate"><span class="pre">/store/dbc</span></code>. You can
+do so either by using the user interface page Config → Autostart (check “Autoload DBC files” and
+set the vehicle type to “DBC”), or from the shell by…</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>OVMS# config set auto dbc yes
+OVMS# config set auto vehicle.type DBC
+</pre></div>
+</div>
+<p>Try a reboot to see if everything works.</p>
+<p>You can now add more objects and signals to your DBC file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>During development of a DBC file, you’ll need to reload the file frequently. The DBC engine
+locks the currently used vehicle, so you’ll need to unload the DBC vehicle (<code class="docutils literal notranslate"><span class="pre">vehicle</span> <span class="pre">module</span> <span class="pre">NONE</span></code>),
+then reload the DBC file (<code class="docutils literal notranslate"><span class="pre">dbc</span> <span class="pre">autoload</span></code>), then reactivate the DBC vehicle (<code class="docutils literal notranslate"><span class="pre">vehicle</span> <span class="pre">module</span> <span class="pre">DBC</span></code>).</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="DBC Based Vehicles" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../vehicle_demo/docs/index.html" class="btn btn-neutral float-right" title="DEMO Vehicle" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019-2020, Open Vehicles Developers.
+      <span class="commit">Revision <code>dc6fa8cb</code>.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: 3.3.004
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/latest/">latest</a></dd>
+        
+          <dd><a href="/en/stable/">stable</a></dd>
+        
+          <dd><a href="/en/3.3.004/">3.3.004</a></dd>
+        
+          <dd><a href="/en/3.3.003/">3.3.003</a></dd>
+        
+          <dd><a href="/en/3.3.002/">3.3.002</a></dd>
+        
+          <dd><a href="/en/3.3.001/">3.3.001</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+      </dl>
+      <dl>
+        
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.org/projects/ovms/?fromdocs=ovms">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.org/builds/ovms/?fromdocs=ovms">Builds</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
