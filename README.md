@@ -120,3 +120,8 @@ Windows (Python) - ~65 seconds
                                         Battery: 80% [AC Connected, Charging]
                                         Locale: en-GB
 ```
+
+## Customising the DBC
+The DBC file defines how the data in the MDF file is decoded. 
+A custom MDF file can be made based on the information available [here](https://docs.openvehicles.com/en/3.3.004/components/vehicle_dbc/docs/dbc-primer.html).
+In case the link changes, or disappears, or anything like that, I'm archiving the page in this repo.
