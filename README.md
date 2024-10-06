@@ -1,5 +1,5 @@
 # CANedge MF4 to XLSX converter
-A quick MF4 to Excel converter using a DBC file for the University of Nottingham Racing Team.
+A quick MF4 to Excel converter using a DBC file for the University of Nottingham Racing Team, written in Python.
 
 ## Usage
 ```
@@ -29,6 +29,15 @@ can_decoder
 mdf_iter
 openpyxl
 cython # Optional - required to make compiled executable
+```
+Make sure you have Python installed by running this in CMD (Hello, old man) or PoweShell or BASH or ZSH (Nice) or FISH (What even) or... 
+```shell
+$ python3 --version 
+# Python 3.12.3
+```
+Run this to install all requirements  - 
+```shell
+$ python -m pip install -r requirements.txt
 ```
 
 ## Executable binares
