@@ -15,17 +15,17 @@ parser.add_argument("mdf_filename",
                     help="MF4 file to be converted to XLSX. Default: data.mf4",
                     nargs="?",
                     type=str,
-                    default="sample_data/Data-10.3.24.MF4")
+                    default="example_data/test.MF4")
 parser.add_argument("xlsx_filename",
-                    help="XLSX file to be generated. Will be appended by date and time of conversion. Default: data",
+                    help="XLSX file to be generated. Will be appended by date and time of conversion. Default: test",
                     nargs="?",
                     type=str,
-                    default="sample_data/Data.xlsx")
+                    default="example_data/test.xlsx")
 parser.add_argument("dbc_filename",
-                    help="CAN database file. Default: 2023.dbc",
+                    help="CAN database file. Default: test.dbc",
                     nargs="?",
                     type=str,
-                    default="sample_data/2023.dbc")
+                    default="example_data/test.dbc")
 args = parser.parse_args()
 
 # Parse dbc file to decode data

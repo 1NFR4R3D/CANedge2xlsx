@@ -1,0 +1,33 @@
+VERSION "DBC Test 1.0"
+
+BS_: 1000000 : 0,0
+
+BO_ 209 COS_NAV0: 8 Vector__XXX
+    SG_ gpsLat  :  0|32@1- (0.1, 0)      [-180|180]  "uDeg" Vector__XXX
+    SG_ gpsLon  : 32|32@1- (0.1, 0)      [-180|180]  "uDeg" Vector__XXX
+
+BO_ 212 COS_ACC : 8 Vector__XXX
+    SG_ accX    : 16|16@1- (0.001, 0)     [-16|16]   "g"    Vector__XXX
+    SG_ accY    : 32|16@1- (0.001, 0)     [-16|16]   "g"    Vector__XXX
+    SG_ accZ    : 48|16@1- (0.001, 0)     [-16|16]   "g"    Vector__XXX
+
+BO_ 213 COS_GYRO: 8 Vector__XXX
+    SG_ gyroX   : 16|16@1- (0.1, 0)     [-2000|2000] "°/s"  Vector__XXX
+    SG_ gyroY   : 32|16@1- (0.1, 0)     [-2000|2000] "°/s"  Vector__XXX
+    SG_ gyroZ   : 48|16@1- (0.1, 0)     [-2000|2000] "°/s"  Vector__XXX
+
+BO_ 214 COS_MAG : 8 Vector__XXX
+    SG_ magCmps :  0|16@1+ (0.01,0)         [0|360]  "°"    Vector__XXX
+    SG_ magX    : 16|16@1- (0.3, 0)     [-2000|2000] "uT"   Vector__XXX
+    SG_ magY    : 32|16@1- (0.3, 0)     [-2000|2000] "uT"   Vector__XXX
+    SG_ magZ    : 48|16@1- (0.3, 0)     [-2000|2000] "uT"   Vector__XXX
+
+BO_ 218 TEST : 8 Vector__XXX
+    SG_ testData1 :  0|8@1+ (1,0)           [0|255]   "FF"    Vector__XXX
+	SG_ testData2 :  8|8@1+ (1,0)           [0|255]   "00"    Vector__XXX
+	SG_ testData3 : 16|8@1+ (1,0)           [0|255]   "FF"    Vector__XXX
+	SG_ testData4 : 24|8@1+ (1,0)           [0|255]   "00"    Vector__XXX
+	SG_ testData5 : 32|8@1+ (1,0)           [0|255]   "FF"    Vector__XXX
+	SG_ testData6 : 40|8@1+ (1,0)           [0|255]   "00"    Vector__XXX
+	SG_ testData7 : 48|8@1+ (1,0)           [0|255]   "FF"    Vector__XXX
+	SG_ testData8 : 56|8@1+ (1,0)           [0|255]   "00"    Vector__XXX
