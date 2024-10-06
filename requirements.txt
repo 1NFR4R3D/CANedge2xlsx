@@ -1,0 +1,6 @@
+can_decoder==0.1.9
+canmatrix==1.0
+mdf_iter==2.1.1
+numpy==1.26.4
+openpyxl==3.1.2
+pandas==2.2.1
